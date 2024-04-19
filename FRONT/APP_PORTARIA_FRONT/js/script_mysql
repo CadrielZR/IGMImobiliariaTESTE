@@ -1,0 +1,31 @@
+
+
+acessar o docker do LOCAWEB e gerar o dump abaixo
+
+mysqldump -u root -p --routines --skip-triggers --skip-lock-tables igmsch_port | sed -e 's/DEFINER[ ]*=[ ]*[^*]*\*/\*/' > /home/portaria.sql
+
+enviar o aruqivo gerado para a maquina abaixo:
+scp /home/portaria.sql root@192.95.56.125:/home/projetos/banco/portaria.sql
+
+ssh acessar a maquina destiono 192.95.56.125 ir no caminho  salvou o banco e acessar o docker gerando o resto do banco 
+mysql -u root -p igmsch_port < /banco/portaria.sql
+
+senha nvoamente
+
+
+mysql -u root -p igmsch_port < /banco/portaria.sql
+
+
+mysql -u root -p
+
+CREATE USER 'igmsch_igm'@'%' IDENTIFIED BY 'igmTecnologia@2022';
+
+GRANT ALL PRIVILEGES ON *.* TO 'igmsch_igm'@'%';
+
+FLUSH PRIVILEGES;
+
+CREATE DATABASE `igmsch_port` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */ /*!80016 DEFAULT ENCRYPTION='N' */;
+
+docker run -d -p 3307:3306 -v /home/projetos/banco/:/banco/  --name mysql igmtecnologia/servidores:db
+
+docker exec -it mysql /bin/bash

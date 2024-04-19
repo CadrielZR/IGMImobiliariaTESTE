@@ -1,0 +1,667 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>IGM PORTARIA REMOTA</title>
+
+    <link rel="stylesheet" href="css/themify-icons.css">
+    <link rel="stylesheet" href="css/feather.css">
+    <link rel="stylesheet" href="css/dataTableResponsive.css">
+    <link rel="stylesheet" href="css/dataTables.bootstrap5.min.css">
+    <link rel="stylesheet" href="css/responsive.dataTables.min.css">
+    <link rel="stylesheet" href="css/responsive.semanticui.css">
+    <link rel="stylesheet" href="css/responsive.semanticui.min.css">
+    <link rel="stylesheet" href="css/responsive.jqueryui.css">
+    <link rel="stylesheet" href="css/responsive.jqueryui.min.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="images/favicon.png">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/custom.css">
+    <script src="https://kit.fontawesome.com/641378d2a1.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/datatables.min.css" />
+    <script src="https://cdn.ckeditor.com/ckeditor5/37.0.0/classic/ckeditor.js"></script>
+    <script src="js/sincronismo_pull.js"></script>
+    <script src="js/maps.js"></script>
+
+</head>
+
+<body class="color-theme-blue mont-font">
+    <div class="preloader"></div>
+    <div class="main-wrapper">
+        <div class="nav-header bg-white shadow-xs border-0">
+            <div class="nav-top">
+                <a href="javascript:void(0);" onclick="menu('menu.html?v=123')"><span
+                        class="d-inline-block fredoka-font ls-3 fw-600 text-current font-xxl logo-text mb-0 logo"> <img
+                            src="img/logos/logotecnologiasombra.png" height="80px" class="fundologoheader"></span>
+                </a>
+                <button class="nav-menu me-0 ms-2 direita"></button>
+            </div>
+            <a href="javascript:void(0);" onclick="menu('menu.html?v=123')"
+                class="p-2 text-center ms-3 menu-icon center-menu-icon"><i
+                    class="fa fa-house font-lg alert-primary btn-round-lg theme-dark-bg text-current "></i></a>
+            <a href="javascript:void(0);" onclick="menu('autorizacao.html')"
+                class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
+                    class="fa fa-key font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <a href="javascript:void(0);" onclick="menu('cameras.html')"
+                class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
+                    class="feather-video font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <a href="javascript:void(0);" onclick="menu('moradores.html')"
+                class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
+                    class="fa fa-users font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+            <!--<a href="javascript:void(0);" onclick="menu('chamados.html')"
+                class="p-2 text-center ms-0 menu-icon center-menu-icon"><i
+                    class="fa fa-screwdriver-wrench font-lg bg-greylight btn-round-lg theme-dark-bg text-grey-500 "></i></a>
+-->
+            <a href="#" class="p-2 text-center ms-auto menu-icon" id="dropdownMenu3" data-toggle="dropdown"
+                aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown"><span
+                    class="dot-count bg-warning"></span><i class="feather-bell font-xl text-current"></i></a>
+            <a href="javascript:void(0);" onclick="menu('menu.html?v=123')" class="p-0 ms-3 menu-icon"><img src=".."
+                    id="imgFotoCima" style="border-radius: 8px;" alt="user" class="w40 mt--1"></a>
+            <br>
+            <br>
+        </div>
+    </div>
+    <nav class="navigation scroll-bar">
+        <div class="container ps-0 pe-0">
+            <div class="nav-content">
+                <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1 mb-2 mt-2">
+                    <center>
+                        <div class="nav-caption fw-600 font-xssss"><b id="spNomeCondominioLateral"
+                                style="color:black"></b></div>
+                        <div class="ajustelateral rounded-circle zoom">
+                            <a href="javascript:void(0);" onclick="menu('condominios.html')">
+                                <img class="shadowwhite zoom shadow" src="http://192.168.0.133:3001/images/29.png"
+                                    id="imgCondominio" style="width: 200px;border-radius: 8%;" alt="">
+                            </a>
+                        </div>
+                        <div class="nav-caption fw-600 font-xssss text-grey-500">
+                            <span id="spEnderecoCondominioLateral"></span><br>
+
+                        </div>
+                    </center>
+                </div>
+
+                <div class="nav-wrap bg-white bg-transparent-card rounded-xxl shadow-xss pt-3 pb-1">
+                    <center>
+                        <img class="shadowwhite zoom shadow" src="img/semfoto.jpg" id="imgPessoaLogada"
+                            style="width: 120px;border-radius: 8%;" alt="">
+                        <div class="nav-caption fw-600 font-xss text-grey-500"><span id="spNomePessoaLateral" style="
+                            color: black;
+                        ">Lucas
+                                Mendes</span> </div>
+                    </center>
+                    <ul class="mb-1">
+                        <li class="logo d-none d-xl-block d-lg-block"></li>
+                        <li><a href="javascript:void(0);" id="dvLinkCondominio" style="display: none;"
+                                onclick="menu('condominios.html')"
+                                class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
+                                    class="font-sm fa-solid fa-solid fa-city me-3 text-grey-500"></i><span>Condominios</span></a>
+                        </li>
+                        <!--
+                        <li><a href="javascript:void(0);" onclick="menu('chamados.html')"
+                                class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
+                                    class="font-sm fa-solid fa-screwdriver-wrench me-3 text-grey-500"></i><span>Abrir
+                                    Chamado</span></a>
+                        </li>
+                        <li>
+                            <a href="javascript:void(0);" class="nav-content-bttn open-font h-auto pt-2 pb-2"
+                                onclick="showMessage()">
+                                <i class="font-sm feather-message-square me-3 text-grey-500"></i>
+                                <span>Falar com Moradores</span>
+                            </a>
+                        </li>
+                        <li>
+                            <div class="message-em-breve d-none">Em breve...</div>
+                            <a href="#" class="nav-content-bttn open-font h-auto pt-2 pb-2" id="modalBtn"
+                                data-bs-toggle="modal" data-bs-target="#exampleModal">
+                                <i class="font-sm fa-solid fa-headset me-3 text-grey-500"></i><span>Falar com IGM</span>
+                            </a>
+                        </li>
+                        -->
+                        <li><a href="javascript:void(0)" onclick="logoff()"
+                                class="nav-content-bttn open-font h-auto pt-2 pb-2"><i
+                                    class="font-sm feather-log-out me-3 text-grey-500"></i><span>Sair</span></a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="main-content bg-lightblue theme-dark-bg right-chat-active" id="dvConteudoGeral">
+    </div>
+    <div class="right-chat nav-wrap mt-2 right-scroll-bar">
+        <div class="middle-sidebar-right-content bg-white shadow-xss rounded-xxl">
+            <div class="preloader-wrap p-3">
+                <div class="box shimmer">
+                    <div class="lines">
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                    </div>
+                </div>
+                <div class="box shimmer mb-3">
+                    <div class="lines">
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                    </div>
+                </div>
+                <div class="box shimmer">
+                    <div class="lines">
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                        <div class="line s_shimmer"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section full pe-3 ps-4 pt-4 position-relative feed-body">
+                <h4 class="font-xsssss text-grey-500 text-uppercase fw-700 ls-3">Moradores</h4>
+                <ul class="list-group list-group-flush" id="dvMoradoresChat">
+                    <li
+                        class="bg-transparent list-group-item no-icon pe-0 ps-0 pt-2 pb-2 border-0 d-flex align-items-center">
+                        <figure class="avatar float-left mb-0 me-2">
+                            <img src="http://uitheme.net/sociala/images/user-8.png" alt="image" class="w35">
+                        </figure>dvMoradoresChat
+                        <h3 class="fw-700 mb-0 mt-0">
+                            <a class="font-xssss text-grey-600 d-block text-dark model-popup-chat" href="#">Hurin
+                                Seary</a>
+                        </h3>
+                        <span class="badge badge-primary text-white badge-pill fw-500 mt-0">2</span>
+                    </li>
+
+
+                </ul> </span></label>
+            </div>
+        </div>
+    </div>
+    <div class="app-footer border-0 shadow-lg bg-primary-gradiant">
+        <a href="javascript:void(0);" onclick="menu('menu.html?v=123')" class="nav-content-bttn nav-center"><i
+                class="fa fa-house"></i></a>
+        <a href="javascript:void(0);" id="dvCamerasMenu" style="display: none;" onclick="menu('cameras.html')"
+            class="nav-content-bttn"><i class="fa fa-video"></i></a>
+        <a hrehref="javascript:void(0);" onclick="menu('autorizacao.html')" class="nav-content-bttn" data-tab="chats"><i
+                class="fa fa-key"></i></a>
+        <a href="javascript:void(0);" onclick="menu('moradores.html')" class="nav-content-bttn"><i
+                class="fa fa-users"></i></a>
+    </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/jq-3.6.0/dt-1.11.5/datatables.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.3.2/js/buttons.print.min.js"></script>
+    <script src="js/plugin.js"></script>
+    <script src="js/scripts.js"></script>
+    <script src="js/device.js?v=1234"></script>
+    <script src="js/global.js"></script>
+    <script src="js/funcao.js"></script>
+    <script src="js/pessoas.js"></script>
+    <script src="js/datatableResponsive.js"></script>
+    <script src="js/dataTables.responsive.min.js"></script>
+    <script src="js/dataTables.responsive.min.mjs"></script>
+    <script src="js/dataTables.responsive.mjs"></script>
+    <script src="js/html2pdf.bundle.min.js"></script>
+</body>
+
+<!-- Modal FOTO-->
+<div class="modal fade" id="modalFoto" tabindex="-1" aria-labelledby="modalFotoLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="modalFotoLabel">Cadastro de Foto - Template Facial</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="fecharModalX();"></button>
+            </div>
+            <div class="modal-body">
+
+
+                <div class="alert alert-primary" role="alert">
+                    <center><b id="spNomeFacial"></b></center>
+                </div>
+                <div class="row">
+
+                    <a href="javascript:void(0);" onclick="loadCamera()" class="btn btn-primary"><i
+                            class="fa fa-camera-retro"></i> ABRIR CAMERA</a>
+                    <div><br>
+                        <label for="fileFacial" class="form-label">SELECIONAR FOTO</label>
+                        <input class="form-control form-control-lg" onchange="uploadFilePessoa();" id="fileFacial"
+                            accept="image/png, image/jpeg" type="file">
+                    </div>
+
+
+                    <div class="col-sm-12">
+                        <center>
+                            <video autoplay="true" id="webCamera">
+                            </video>
+                        </center>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" onclick="takeSnapShot();" class="btn btn-success">FOTOGRAFAR</button>
+                <button type="button" onclick="salvarPessoa();" class="btn btn-primary">Salvar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<!-- Modal Sincronismo-->
+<div class="modal fade" id="modalSincronismoGeral" tabindex="-1" aria-labelledby="modalSincronismoGeralLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-fullscreen">
+        <div class="modal-content">
+            <div class="modal-header tituloEmergencia">
+                <center>
+                    <h5 class="modal-title text-center tituloGeral py-3" id="modalSincronismoGeralLabel">Sincronizaçāo
+                    </h5>
+                </center>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row" style="overflow: auto;">
+                    <div class="col-sm-4">
+                        <center>
+                            <div class="tituloEmergencia">
+                                <b>Controladoras - PULL</b>
+                            </div>
+                        </center>
+                        <hr>
+                        <div id="sincPull">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <center>
+                            <div class="tituloEmergencia">
+                                <b>FACIAIS - INTELBRAS</b>
+                            </div>
+                        </center>
+                        <hr>
+                        <div id="sincPush">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <center>
+                            <div class="tituloEmergencia">
+                                <b>FACIAIS - ZKTECO</b>
+                            </div>
+                        </center>
+                        <hr>
+                        <div id="sincIntelbras">
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- Modal Biometria-->
+<div class="modal fade" id="modalBiometria" tabindex="-1" aria-labelledby="modalBiometriaLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center>
+                    <h5 class="modal-title" id="modalBiometriaLabel">Cadastro de Biometria</h5>
+                </center>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="fecharModalX();"></button>
+            </div>
+            <div class="modal-body">
+
+
+
+                <div class="row" id="dvImpressaoDigital">
+
+                    <div class="col-sm-6">
+                        <img src="img/mao.png">
+                    </div>
+                    <div class="col-sm-6">
+                        <img src="img/mao.png">
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<!-- Modal Falar com a IGM -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header tituloEmergencia">
+                <center>
+                    <h5 class="modal-title text-center tituloGeral py-3" id="exampleModalLabel">Falar com a IGM</h5>
+                </center>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"
+                    onclick="fecharModalX();"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="chatbox">
+                            <div class="chatbox-messages">
+                            </div>
+                            <div class="chatbox-input">
+                                <form>
+                                    <div class="row">
+                                        <div class="col-sm-12">
+                                            <div class="floating-label-group">
+                                                <textarea type="text" id="" style="height: 124px;"
+                                                    class="form-control shadow"
+                                                    placeholder="Digite sua mensagem..."></textarea>
+
+                                            </div>
+                                            <!-- <div class="form-group">
+                                                <label for="exampleInputEmail1" class="form-text">Informe seu RG</label>
+                                                <input type="text" id="txtRgPrimeiroAcesso" class="form-control rg">
+                                            </div> -->
+                                        </div>
+
+                                    </div>
+                                    <div class="row" style="text-align: -webkit-right;">
+                                        <div class="col-lg-12">
+                                            <button type="submit" class="btn btn-primary">Enviar</button>
+                                        </div>
+                                    </div>
+
+                                    <!--   <input type="text" class="form-control" placeholder="Digite sua mensagem..."> -->
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                <button type="button" class="btn btn-primary">Salvar mudanças</button>
+            </div> -->
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal Cartóes-->
+<div class="modal fade" id="modalControles" tabindex="-1" aria-labelledby="modalControlesLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+            <div class="modal-header">
+                <center>
+                    <h5 class="modal-title" id="modalControlesLabel">Cadastro de Cartões</h5>
+                </center>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row" id="dvCartoes">
+
+                    <div class="col-sm-12">
+                        <h4>Equipamento para Coleta</h4>
+                        <select class="form-select" onchange="SetrealTime()" id="slcEquipamentoColetar">
+                            <option value="0">Selecione o equipamento Coletor</option>
+                            <option value="1">C3</option>
+                        </select>
+
+                    </div>
+                </div>
+                <hr>
+                <div class="row" id="dvCartoes">
+                    <div class="col-sm-4">
+                        <h6>TAGS DE ACESSO</h6>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <div class="input-group mb-3">
+                                    <input type="text" id="txtTag"><br>
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" onclick="addTagPessoa()"
+                                            type="button"><i class="fa fa-plus"></i>
+                                            Adicionar</button>
+
+                                        <button class="btn btn-outline-primary" onclick="lerDevice()" type="button"><i
+                                                class="fa fa-mobile"></i>
+                                            Ler</button>
+                                        <img src="img/loading.gif" width="20px" id="imgLeituraCartao"
+                                            style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="dvTags">
+
+                        </div>
+                    </div>
+                    <div class="col-sm-8">
+                        <h6>CONTROLES GARAGEM</h6>
+                        <div class="row">
+                            <div class="col-lg-6">
+                                <select class="form-select" id="slcControleGaragem"></select>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="input-group mb-3">
+                                    <input type="number" id="txtControle">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-secondary" onclick="addControlePessoa()"
+                                            type="button"><i class="fa fa-plus"></i> Adicionar</button>
+                                        <button class="btn btn-outline-primary" onclick="lerDeviceGaragem()"
+                                            type="button"><i class="fa fa-mobile"></i>
+                                            Ler</button>
+                                        <img src="img/loading.gif" width="20px" id="imgLeituraCartaoGaragem"
+                                            style="display: none;">
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div id="dvControles">
+
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+<!-- MODAL CONFIRM -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header tituloEmergencia">
+                <center>
+                    <h5 class="modal-title text-center tituloGeral py-3" id="confirmModalLabel">Confirmação</h5>
+                </center>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="fecharModalX();"></button>
+            </div>
+            <div class="modal-body">
+                <p>Deseja confirmar?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Cancelar</button>
+                <button type="button" class="btn btn-primary" id="confirmBtn">Confirmar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- MODAL ALERT -->
+<div class="modal fade" id="modalAlert" tabindex="-1" aria-labelledby="alertModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header tituloEmergencia">
+                <center>
+                    <h5 class="modal-title text-center tituloGeral py-3" id="alertTitulo">Mensagem do sistema</h5>
+                </center>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Fechar"
+                    onclick="fecharModalX();"></button>
+            </div>
+            <div class="modal-body">
+                <p id="alertMensagem">Mensagem do alert</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal"
+                    onclick="fecharModalAlert();">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="modal fade" id="modalReconhecimento" tabindex="-1" aria-labelledby="modalFotoLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header tituloEmergencia">
+                <h5 class="modal-title text-center tituloGeral py-3" id="modalFotoLabel">RECONHECIMENTO FACIAL</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="fecharModalX();"></button>
+            </div>
+            <div class="modal-body">
+                <div class="row>">
+                    Olá, <h4 id="spPessoaLogando"></h4>
+                </div>
+                <b>Posicione o seu rosto centralizado no quadro abaixo:<b><br>
+
+                        <div class="row>" id="video">
+                            <center>
+                                <video autoplay id="cam" width="250" height="250" muted></video>
+                            </center>
+                        </div>
+
+
+            </div>
+
+            <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">CANCELAR</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="position-fixed bottom-0 end-0 p-3" style="z-index: 5">
+    <div id="liveToast" class="toast" role="alert" aria-live="assertive" aria-atomic="true" style="width: 300px!important;">
+        <div class="toast-header" style="background-color: #007bff; color: #fff;">
+            <strong class="me-auto" style="font-size: 20px!important;">Notificação</strong> <!-- Aumentando o tamanho da fonte do cabeçalho -->
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+        </div>
+        <div class="toast-body"  style="font-size: 16px!important;"> <!-- Aumentando o tamanho da fonte do corpo do toast -->
+            <!-- Aqui será exibido o conteúdo da mensagem -->
+          
+        </div>
+    </div>
+</div>
+
+
+</html>
+<script>
+    if (objeto_pessoa.id_condominio == 1) {
+        menu('condominios.html');
+    }
+    else {
+        menu('menu.html?v=123');
+    }
+
+    getAllPessoasCondominioChat();
+    getAllPortasCondominioTag();
+    setarInformacoes();
+    // window.setTimeout(setarInformacoes, 5000);
+</script>
+<script>
+    function showMessage() {
+        const messageBox = document.querySelector('.message-em-breve');
+        const button = document.querySelector('.nav-content-bttn');
+        button.classList.add('disabled');
+        messageBox.classList.remove('d-none');
+        setTimeout(() => {
+            messageBox.classList.add('d-none');
+            button.classList.remove('disabled');
+        }, 3000);
+    }
+
+</script>
+<script>
+    const navigation = document.querySelector(".navigation");
+    const navigationLinks = document.querySelectorAll(".navigation a");
+    const menuButton = document.querySelector("#menuButton");
+
+    // adiciona um evento de clique para todos os links dentro do menu
+    navigationLinks.forEach(link => {
+        link.addEventListener("click", () => {
+            navigation.classList.remove("nav-active");
+        });
+    });
+
+    // adiciona um evento de clique para o botão que mostra o menu
+    menuButton.addEventListener("click", () => {
+        navigation.classList.toggle("nav-active");
+    });
+
+</script>
+<!--
+<script src="assets/lib/face-api/face-api.min.js"></script>
+<script src="assets/js/index.js"></script>
+-->
+<script>
+
+
+
+
+
+    // window.onload = loadGoogleMapsScript;
+    if (objeto_pessoa.flag_morador == 0) {
+        document.getElementById("dvLinkCondominio").style.display = 'block';
+
+    }
+</script>

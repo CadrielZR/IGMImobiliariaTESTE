@@ -1,0 +1,42 @@
+<script src="js/condominio.js"></script>
+<div class="middle-sidebar-bottom">
+    <div class="middle-sidebar-left">
+        <div class="middle-wrap">
+            <div class="card w-100 border-0 bg-white shadow-xs p-0 mb-4 ajustaForm"style="align-items: center;">
+                <script type="text/javascript">
+                    function pesquisarCondominio() {
+
+                        $('.contact-name').hide();
+                        var txt = $('#search').val();
+                        if (txt == "") {
+                           
+                            $('.contact-name').show();
+                        }
+                        else {
+                            $('.contact-name').each(function () {
+                                if ($(this).text().toUpperCase().indexOf(txt.toUpperCase()) != -1) {
+                                    $(this).show();
+                                }
+                            });
+                        }
+                    }
+                </script>
+                <br>
+                <input type="text" placeholder="Buscar Condominio..." class="form-control" id="search" onkeyup="pesquisarCondominio()" />
+                <br>
+                <ul class="list-group" id="dvCondominio">
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+
+</div>
+<script>
+    if (objeto_pessoa.id_condominio != 1) {
+        menu('menu.html');
+    }
+    getAllCondominios();  
+</script>

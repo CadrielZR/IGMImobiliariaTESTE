@@ -1,0 +1,8 @@
+1 - Adicionar Pessoas PULL 
+2 - Adicionar todas as TAGS da PESSOA pull3 
+3 - Adicionar Biometria a PEssoa PULL (PIN ID)
+4 - Adicionar Timezones do id_condominio
+5 - Adicionar Niveis de Acesso com timezone para cada PEssoa e Cada PIn TAG
+6 - Enviar os controles de garagem 
+7 - Enviar os níveis de garagem
+8 - responder websockt com a resposta do equipamento 

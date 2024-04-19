@@ -1,0 +1,80 @@
+<meta charset='utf-8' />
+<script src="js/comandos.js"></script>
+
+
+<div class="middle-sidebar-bottom">
+    <div class="middle-sidebar-left">
+        <div class="card-body p-4 w-100 bg-current border-0 d-flex rounded-3">
+            <a href="javascript:void(0);" onclick="menu('menu.html')" class="d-inline-block mt-2"><i
+                    class="ti-arrow-left font-sm text-white"></i></a>
+            <h4 class="font-xs text-white fw-600 h4Titulos mb-0 mt-2">COMANDOS</h4>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="container-fluid">
+                <div class="container">
+                    <div class="tituloEmergencia">
+                        <b>Últimas Sincronizações</b>
+                    </div>
+                    <div class="row" id="dvComandos">
+                        <table id="tblComandos"
+                            class="table table-bordered dt-responsive nowrap table-striped align-middle"
+                            style="width:100%;font-size: 10px;">
+                            <thead>
+                                <tr>
+                                    <th>Codigo</th>
+                                    <th>Data</th>
+                                    <th>Responsavel</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody>
+
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="modalRelatorioSincronismo" tabindex="-1" aria-labelledby="modalRelatorioSincronismoLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+        <div class="modal-content" style="max-height: 600px;">
+            <div class="modal-header tituloEmergencia">
+                <center>
+                    <h5 class="modal-title text-center tituloGeral " id="modalRelatorioSincronismoLabel">Comandos
+                        Executados</h5>
+                </center>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"
+                    onclick="fecharModalX();"></button>
+            </div>
+            <div class="modal-body" style="overflow: auto;">
+                <a href="javascript:void(0);" onclick="refreshComandos()" class="btn btn-success">Atualizar</a>
+                <hr>
+                <table id="tblSincronismo" class="table table-bordered dt-responsive nowrap table-striped align-middle"
+                    style="width:100%;font-size: 10px;">
+                    <thead>
+                        <tr>
+                            <th>Codigo</th>
+                            <th>Resultado</th>
+                            <th>Comando</th>
+                            <!--<th>Comando</th> -->
+                            <!--<th>Comando</th> -->
+                        </tr>
+                    </thead>
+                    <tbody>
+                    </tbody>
+                </table>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+
+    getUltimosComandos();
+</script>
